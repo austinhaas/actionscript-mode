@@ -51,7 +51,7 @@
 (eval-when-compile
   (require 'regexp-opt))
 
-(defconst actionscript-mode-version "7.2.1"
+(defconst actionscript-mode-version "7.2.2"
   "Actionscript Mode version number.")
 
 (defgroup actionscript nil
@@ -479,7 +479,7 @@ the regexp will match any function."
 						"\\([\"a-zA-Z\-0-9_$*,:= \t\n]*?\\(?:\\.\\.\\.[a-zA-Z\-0-9_$]+\\)?\\)"           ; (4) Function parameters, including any trailing '...args'.
 						")"                                                          ; Closing paren for function parameters.
 						"[ \t\n]*"                                                   ; Optional whitespace.
-						"\\(?::[ \t\n]*\\(" actionscript-identifier-re "\\|*\\)\\)?"    ; (5) Optional return value type specifier.
+						"\\(?::[ \t\n]*\\(" actionscript-identifier-re "\\|\\*\\)\\)?"    ; (5) Optional return value type specifier.
 						"[ \t\n]*"                                                   ; Optional whitespace.
 						"{")))                                                       ; Opening brace for function body.
 
@@ -502,7 +502,7 @@ is omitted, the regexp will match any class attribute."
 						"[ \t\n]+"                                                   ; Mandatory whitespace.
 						"\\(" attribute-name "\\)"                                   ; (4) Attribute name.
 						"[ \t\n]*"                                                   ; Optional whitespace.
-						"\\(?::[ \t\n]*\\(" actionscript-identifier-re "*\\)\\)?"    ; (5) Optional type specifier.
+						"\\(?::[ \t\n]*\\(" actionscript-identifier-re "\\|\\*\\)\\)?"    ; (5) Optional type specifier.
 						)))
 
 (defconst as-attribute-re (as-get-attribute-re)
