@@ -40,14 +40,18 @@
 ;;; Changes in 7.2
 ;;
 ;; Updated comments.
+;;
+;; See https://github.com/austinhaas/actionscript-mode for info on
+;; future changes.
 
 ;;; Code:
 
+(require 'cl)
 (require 'font-lock)
 (eval-when-compile
   (require 'regexp-opt))
 
-(defconst actionscript-mode-version "7.2"
+(defconst actionscript-mode-version "7.2.1"
   "Actionscript Mode version number.")
 
 (defgroup actionscript nil
