@@ -227,6 +227,12 @@
   :type 'hook
   :group 'actionscript)
 
+(defcustom actionscript-indent-level 4
+  "Number of spaces for each indentation step in `actionscript-mode'."
+  :type 'integer
+  :safe 'integerp
+  :group 'actionscript)
+
 (defcustom actionscript-font-lock-level 2
 	"*What level of syntax highlighting do we want. 1-3"
 	:type '(radio (const :tag "Only keywords." 1)
@@ -481,7 +487,7 @@ whitespace. Keep point at same relative point in the line."
           0
         (progn
           (as3-maybe-skip-leading-close-delim)
-          (+ (current-indentation) (* standard-indent (as3-count-scope-depth (point) pos))))))))
+          (+ (current-indentation) (* actionscript-indent-level (as3-count-scope-depth (point) pos))))))))
 
 (defun as3-maybe-skip-leading-close-delim ()
   (beginning-of-line)
