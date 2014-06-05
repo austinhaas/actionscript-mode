@@ -95,11 +95,6 @@
 	(define-key actionscript-mode-map "\C-c\C-c" 'comment-region)
 	(define-key actionscript-mode-map "\C-c\C-u" 'uncomment-region))
 
-(defcustom actionscript-mode-hook nil
-  "*Hook called by `actionscript-mode'."
-  :type 'hook
-  :group 'actionscript)
-
 ;; Preprocessor directives (for cpp, not Actionscript).
 (defconst preprocessor-kwds
 	'("#include" "#define" "#else" "#endif" "#ifdef" "#ifndef"))
