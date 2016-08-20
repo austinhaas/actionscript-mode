@@ -46,9 +46,9 @@
 
 ;;; Code:
 
-(require 'cl)
 (require 'font-lock)
 (eval-when-compile
+  (require 'cl)
   (require 'regexp-opt))
 
 (defconst actionscript-mode-version "7.2.2"
