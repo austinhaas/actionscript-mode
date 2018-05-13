@@ -575,5 +575,4 @@ whitespace. Keep point at same relative point in the line."
 		(actionscript-mode)
 		(message "actionscript-mode reloaded.")))
 
-(define-key global-map [f5] 'reload-actionscript-mode)
 ;;; actionscript-mode.el ends here
