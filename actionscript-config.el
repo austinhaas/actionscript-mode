@@ -23,12 +23,13 @@
 ;;; Commentary:
 ;;
 ;; This is just my personal set of utilities for hacking
-;; actionscript. You should load actionscript-mode first.
+;; actionscript.  You should load actionscript-mode first.
 ;;
 ;; Add this to your .emacs:
 ;; (eval-after-load	"actionscript-mode" '(load "actionscript-config"))
 
 ;; Automatically use hideshow with actionscript files.
+;;; Code:
 (add-hook 'actionscript-mode-hook 'hs-minor-mode)
 
 ;;;; Useful functions -------------------------------------------------------------
@@ -68,6 +69,7 @@ with a directory named 'as' from which it builds package names."
               (package-string (as-get-package)))
           (insert (concat "package " package-string "{\n\n  public class " className "{\n\n    public function " className "(){\n\n    }\n\n    public function toString():String{\n      return \"<< " className " >>\";\n    }\n  }\n}\n"))))
 
+(defvar as-function-re)
 (defun as-empty-buffer-template-hook ()
   "If the current buffer is empty, some AS boilerplate from `insert-flash-boilerplate'."
   (when (= (buffer-size (current-buffer)) 0)
@@ -113,7 +115,7 @@ with a directory named 'as' from which it builds package names."
 			(message debug-msg))))
 
 (defun as-insert-trace ()
-	"Insert an empty trace call at point. If we are over a word, then trace that word on the next line"
+	"Insert an empty trace call at point.  If we are over a word, then trace that word on the next line."
 	(interactive)
 	(let ((trace-cmd "trace")
 				(cw (current-word)))
